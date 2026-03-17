@@ -1,0 +1,50 @@
+{
+  "name": "@gren/ui",
+  "version": "1.0.0",
+  "description": "Custom UI Library for @gren projects",
+  "author": "Jhon Prabukusumo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridwanhanafi/grenui.git",
+    "directory": "packages/ui"
+  },
+  "exports": {
+    "./react": {
+      "types": "./src/react/index.ts",
+      "import": "./src/react/index.ts"
+    },
+    "./style": "./src/react/styles/global.css",
+    "./tailwind": "./tailwind.css"
+  },
+  "files": [
+    "src",
+    "tailwind.css",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "echo 'No build needed, just import src directly'",
+    "lint": "eslint . --max-warnings 0",
+    "generate:component": "turbo gen react-component",
+    "check-types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.0"
+  },
+  "devDependencies": {
+    "@gren/eslint-config": "*",
+    "@gren/typescript-config": "*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "eslint": "^9.39.1",
+    "typescript": "5.9.2"
+  }
+}
