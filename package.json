@@ -18,6 +18,11 @@
     "./style": "./src/react/styles/global.css",
     "./tailwind": "./tailwind.css"
   },
+  "typesVersions": {
+    "*": {
+      "react": ["dist/index.d.ts"]
+    }
+  },
   "files": [
     "src",
     "tailwind.css",

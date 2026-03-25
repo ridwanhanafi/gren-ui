@@ -16,4 +16,4 @@ declare const Button: React.ForwardRefExoticComponent<Omit<ButtonProps, "ref"> &
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Button, type ButtonProps, button, cn };
+export { Button, cn };
