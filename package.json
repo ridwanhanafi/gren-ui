@@ -2,11 +2,11 @@
   "name": "@gren/ui",
   "version": "1.0.0",
   "description": "Custom UI Library for @gren projects",
-  "author": "Jhon Prabukusumo",
+  "author": "ridwanhanafi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ridwanhanafi/grenui.git",
+    "url": "git+https://github.com/ridwanhanafi/gren-ui.git",
     "directory": "packages/ui"
   },
   "exports": {
