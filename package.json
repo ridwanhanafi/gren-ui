@@ -4,6 +4,7 @@
   "description": "Custom UI Library for @gren projects",
   "author": "ridwanhanafi",
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ridwanhanafi/gren-ui.git",
@@ -12,18 +13,10 @@
   "exports": {
     "./react": {
       "types": "./dist/react.d.ts",
-      "import": "./dist/react.mjs",
-      "require": "./dist/react.js"
+      "import": "./dist/react.js"
     },
-    "./style": "./src/react/styles/global.css",
+    "./style": "./dist/style.css",
     "./tailwind": "./tailwind.css"
-  },
-  "typesVersions": {
-    "*": {
-      "react": [
-        "dist/react.d.ts"
-      ]
-    }
   },
   "files": [
     "dist",
@@ -32,8 +25,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsup && cpy src/react/styles/global.css dist/style.css",
+    "dev": "tsup --watch & cpy src/react/styles/global.css dist/style.css --watch",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
@@ -57,6 +50,7 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "cpy-cli": "^7.0.0",
     "eslint": "^9.39.1",
     "tsup": "^8.5.1",
     "typescript": "5.9.2"

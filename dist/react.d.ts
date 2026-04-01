@@ -92,6 +92,21 @@ type AlertProps = ComponentProps<"div"> & VariantProps<typeof alertBase> & Varia
 };
 declare const Alert: react.ForwardRefExoticComponent<Omit<AlertProps, "ref"> & react.RefAttributes<HTMLDivElement>>;
 
+declare const modal: (props?: ({
+    position?: "center" | "topLeft" | "topCenter" | "topRight" | "centerLeft" | "centerRight" | "bottomLeft" | "bottomCenter" | "bottomRight" | null | undefined;
+    disabled?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+declare const modalContent: (props?: ({
+    size?: "small" | "medium" | "large" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type ModalProps = {
+    open: boolean;
+    title?: string;
+    footer?: React.ReactNode;
+    onClose: () => void;
+} & ComponentProps<"div"> & VariantProps<typeof modal> & VariantProps<typeof modalContent>;
+declare const Modal: react.ForwardRefExoticComponent<Omit<ModalProps, "ref"> & react.RefAttributes<HTMLDivElement>>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Alert, Badge, Button, Icon, Input, Label, Select, Spinner, Textarea, cn };
+export { Alert, Badge, Button, Icon, Input, Label, Modal, Select, Spinner, Textarea, cn };
