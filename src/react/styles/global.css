@@ -1,0 +1,19 @@
+/* base style */
+:root {
+  /* Definisikan nilai mentah (raw values) */
+  --brand-primary: #288052;
+  --brand-primary-hv: #184f32;
+  --brand-secondary: #b4b6ba;
+}
+
+.dark {
+  --brand-primary-c: #288052;
+  --brand-foreground-c: #184f32;
+  --brand-secondary-c: #b4b6ba;
+}
+
+@theme {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-secondary: var(--brand-secondary);
+}
