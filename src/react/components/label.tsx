@@ -15,16 +15,10 @@ const label = cva(
         small: ["text-sm"],
         medium: ["text-base"],
       },
-      // `boolean` variants are also supported!
-      disabled: {
-        false: null,
-        true: ["opacity-50", "pointer-events-none"],
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "medium",
-      disabled: false,
     },
   },
 );
@@ -36,7 +30,7 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(
   ({ className, variant, size, children, ...props }, ref) => {
     return (
       <label
-        className={cn(label({ variant, size, className }))}
+        className={cn(label({ variant, size }), className)}
         ref={ref}
         {...props}
       >
@@ -49,4 +43,3 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(
 Label.displayName = "Label";
 
 export default Label;
-export { label };

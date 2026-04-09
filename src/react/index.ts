@@ -8,5 +8,8 @@ export { default as Spinner } from "./components/spinner";
 export { default as Badge } from "./components/badge";
 export { default as Alert } from "./components/alert";
 export { default as Modal } from "./components/modal";
+export { default as Accordion } from "./components/accordion";
+export { default as Card } from "./components/card";
+export { default as Breadcrumb } from "./components/breadcrumb";
 // export { default as Pagination } from "./components/pagination";
 export * from "./lib/utils";

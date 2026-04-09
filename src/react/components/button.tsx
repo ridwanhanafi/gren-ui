@@ -8,8 +8,8 @@ const button = cva(
   {
     variants: {
       variant: {
-        primary: ["bg-brand-primary", "text-white"],
-        secondary: ["bg-brand-secondary", "text-black", "dark:text-white"],
+        primary: ["bg-brand-primary", "text-primary", "dark:text-primary"],
+        secondary: ["bg-brand-secondary", "text-primary", "dark:text-primary"],
       },
       size: {
         small: ["text-sm", "py-1", "px-2"],
@@ -42,7 +42,7 @@ const button = cva(
     ],
     defaultVariants: {
       variant: "primary",
-      size: "small",
+      size: "medium",
       disabled: false,
     },
   },
@@ -55,10 +55,10 @@ export type ButtonProps = ComponentProps<"button"> &
  * Primary button for user actions
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, children, ...props }, ref) => {
+  ({ className, variant, size, disabled, children, ...props }, ref) => {
     return (
       <button
-        className={cn(button({ variant, size, className }))}
+        className={cn(button({ variant, size, disabled }), className)}
         ref={ref}
         {...props}
       >
@@ -71,4 +71,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export default Button;
-export { button };

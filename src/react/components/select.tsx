@@ -44,42 +44,42 @@ const select = cva(
   },
 );
 
-type Option = {
-  label: string;
-  value: string;
-};
+/* ================= SUB COMPONENT ================= */
+
+export type OptionProps = ComponentProps<"option"> &
+  VariantProps<typeof select>
+
+const SelectOption = ({ className, ...props }: ComponentProps<"option">) => (
+  <option className={cn(className)}
+    {...props}
+  />
+)
+
+/* ================= MAIN COMPONENT ================= */
 
 export type SelectProps = ComponentProps<"select"> &
-  VariantProps<typeof select> & {
-    options?: Option[]
-  };
+  VariantProps<typeof select>;
 
-const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ className, variant, size, options, children, ...props }, ref) => {
+type SelectComponent = typeof SelectMain & {
+  Option: typeof SelectOption;
+};
+
+const SelectMain = forwardRef<HTMLSelectElement, SelectProps>(
+  ({ className, variant, size, disabled, ...props }, ref) => {
     return (
       <select
         defaultValue=""
-        className={cn(select({ variant, size, className }))}
+        className={cn(select({ variant, size, disabled }), className)}
         ref={ref}
-        {...props}
-      >
-        <option value="" disabled>
-          Pilih data
-        </option>
-
-        {options
-          ? options.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))
-          : children}
-      </select>
+        {...props} />
     );
-  },
+  }
 );
 
-Select.displayName = "Select";
+SelectMain.displayName = "Select";
+
+const Select: SelectComponent = Object.assign(SelectMain, {
+  Option: SelectOption,
+});
 
 export default Select;
-export { select };

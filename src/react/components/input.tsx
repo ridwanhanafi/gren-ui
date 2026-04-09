@@ -7,7 +7,7 @@ const input = cva(
   [
     "w-full min-w-0 rounded-md border transition-colors",
     "focus:outline-none focus:ring-2",
-    
+
     // LIGHT MODE
     "bg-white text-black border-gray-300 placeholder:text-gray-400",
     "focus:ring-brand-primary",
@@ -33,7 +33,7 @@ const input = cva(
       // `boolean` variants are also supported!
       disabled: {
         false: null,
-        true: ["opacity-50", "pointer-events-none"],
+        true: ["opacity-50", "pointer-events-none", "bg-gray-200", "border-gray-300"],
       },
     },
     defaultVariants: {
@@ -50,10 +50,10 @@ export type InputProps = BaseInputProps &
   VariantProps<typeof input>;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, disabled, ...props }, ref) => {
     return (
       <input
-        className={cn(input({ variant, size, className }))}
+        className={cn(input({ variant, size, disabled }), className)}
         ref={ref}
         {...props}
       />
@@ -64,4 +64,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 Input.displayName = "Input";
 
 export default Input;
-export { input };

@@ -50,7 +50,7 @@ Jika menggunakan framework
 
 | Frawework | Additional Packages    |
 | --------- | ---------------------- |
-| Next Js   | `postcss` |
+| Next Js   | `postcss`              |
 
 
 ### React
@@ -58,19 +58,76 @@ Jika menggunakan framework
 - Minimum react js ≥18
 
 
-| Component | Use                       | Note                  |
-| --------- | ------------------------- | --------------------- |
-| Button    | `<Button></Button>`       | -                     |
-| Icon      | `<Icon name="plus-lg" />` | `bootstrap 5` |
-| Input     | `<Input />`               | -                     |
-| Select    | `<Select options={[{ label: "Option 1", value: "1" }]}></Select>` | - |
-| Textarea  | `<Textarea defaultValue="isi default" />` | -     |
-| Spinner   | `<Spinner />`             | -                     |
-| Badge     | `<Badge>Badge</Badge>`    | `'gray', 'red', 'yellow' ...etc.` |
-| Alert     | `<Alert title="Yey" message="Alert notifikasi">` | `'gray', 'red', 'yellow' ...etc.` |
+| Component | Note                              |
+| --------- | ----------------------------------|
+| Button    |  -                                |
+| Icon      | install `bootstrap 5`             |
+| Input     |  -                                |
+| Select    |  -                                |
+| Textarea  |  -                                |
+| Spinner   |  -                                |
+| Badge     | `'gray', 'red', 'yellow' ...etc.` |
+| Alert     | `'gray', 'red', 'yellow' ...etc.` |
 
+Contoh:
 
+<details>
+  <summary>Button</summary>
+
+```tsx
+<Button>Simpan</Button>
+```
+
+Custom:
+
+- variant: ```primary```, ```secondary```
+- size: ```small```, ```medium```
+- disabled: ```true``` / ```false``` (boolean)
+
+```tsx
+<Button variant={"primary"}>Simpan</Button>
+```
+</details>
+
+<details>
+  <summary>Icon</summary>
+
+```tsx
+<Icon name="plus-lg" />
+```
+</details>
+
+<details>
+  <summary>Input</summary>
+
+```tsx
+const [data, setData] = React.useState("")
+
+<Input onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+    setData(e.target.value)} 
+/>
+```
+</details>
+
+<details>
+  <summary>Label</summary>
+
+```tsx
+<Label>Username</Label>
+```
+</details>
+
+<details>
+  <summary>Select</summary>
+
+```tsx
+<Select>
+    <Select.Option>Makan</Select.Option>
+    <Select.Option>Minum</Select.Option>
+</Select>
+```
+</details>
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+![Preview App](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSam3KP97I61YnQKh6pOK2Khr1lY3CiCNN7QQ&s)

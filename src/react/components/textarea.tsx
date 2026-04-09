@@ -33,7 +33,7 @@ const textarea = cva(
       // `boolean` variants are also supported!
       disabled: {
         false: null,
-        true: ["opacity-50", "pointer-events-none"],
+        true: ["opacity-50", "pointer-events-none", "bg-gray-200", "border-gray-300"],
       },
     },
     defaultVariants: {
@@ -48,10 +48,10 @@ export type TextareaProps = ComponentProps<"textarea"> &
   VariantProps<typeof textarea>;
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, disabled, ...props }, ref) => {
     return (
       <textarea
-        className={cn(textarea({ variant, size, className, }))}
+        className={cn(textarea({ variant, size, disabled }), className)}
         ref={ref}
         {...props}
       />
@@ -62,4 +62,3 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 Textarea.displayName = "Textarea";
 
 export default Textarea;
-export { textarea };

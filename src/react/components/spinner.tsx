@@ -16,16 +16,10 @@ const spinner = cva(
         medium: ["w-15 h-15"],
         large: ["w-20 h-20"],
       },
-      // `boolean` variants are also supported!
-      disabled: {
-        false: null,
-        true: ["opacity-50", "pointer-events-none"],
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "medium",
-      disabled: false,
     },
   },
 );
@@ -37,7 +31,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
       <div
-        className={cn(spinner({ variant, size, className }))}
+        className={cn(spinner({ variant, size }), className)}
         ref={ref}
         {...props}
       >
@@ -56,4 +50,3 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
 Spinner.displayName = "Spinner";
 
 export default Spinner;
-export { spinner };

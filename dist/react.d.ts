@@ -2,6 +2,7 @@ import * as react from 'react';
 import { ComponentProps } from 'react';
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import { VariantProps } from 'class-variance-authority';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ClassValue } from 'clsx';
 
 declare const button: (props?: ({
@@ -32,7 +33,6 @@ declare const Input: react.ForwardRefExoticComponent<Omit<InputProps, "ref"> & r
 declare const label: (props?: ({
     variant?: "primary" | "secondary" | null | undefined;
     size?: "small" | "medium" | null | undefined;
-    disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type LabelProps = ComponentProps<"label"> & VariantProps<typeof label>;
 declare const Label: react.ForwardRefExoticComponent<Omit<LabelProps, "ref"> & react.RefAttributes<HTMLLabelElement>>;
@@ -42,14 +42,13 @@ declare const select: (props?: ({
     size?: "small" | "medium" | null | undefined;
     disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
-type Option = {
-    label: string;
-    value: string;
+declare const SelectOption: ({ className, ...props }: ComponentProps<"option">) => react_jsx_runtime.JSX.Element;
+type SelectProps = ComponentProps<"select"> & VariantProps<typeof select>;
+type SelectComponent = typeof SelectMain & {
+    Option: typeof SelectOption;
 };
-type SelectProps = ComponentProps<"select"> & VariantProps<typeof select> & {
-    options?: Option[];
-};
-declare const Select: react.ForwardRefExoticComponent<Omit<SelectProps, "ref"> & react.RefAttributes<HTMLSelectElement>>;
+declare const SelectMain: react.ForwardRefExoticComponent<Omit<SelectProps, "ref"> & react.RefAttributes<HTMLSelectElement>>;
+declare const Select: SelectComponent;
 
 declare const textarea: (props?: ({
     variant?: "primary" | "secondary" | null | undefined;
@@ -62,7 +61,6 @@ declare const Textarea: react.ForwardRefExoticComponent<Omit<TextareaProps, "ref
 declare const spinner: (props?: ({
     variant?: "primary" | "secondary" | null | undefined;
     size?: "small" | "medium" | "large" | null | undefined;
-    disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type SpinnerProps = ComponentProps<"div"> & VariantProps<typeof spinner>;
 declare const Spinner: react.ForwardRefExoticComponent<Omit<SpinnerProps, "ref"> & react.RefAttributes<HTMLDivElement>>;
@@ -70,7 +68,6 @@ declare const Spinner: react.ForwardRefExoticComponent<Omit<SpinnerProps, "ref">
 declare const badge$1: (props?: ({
     variant?: "gray" | "red" | "yellow" | "green" | "blue" | "indigo" | "purple" | "pink" | null | undefined;
     size?: "small" | "medium" | null | undefined;
-    disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type BadgeProps = ComponentProps<"span"> & VariantProps<typeof badge$1>;
 declare const Badge: react.ForwardRefExoticComponent<Omit<BadgeProps, "ref"> & react.RefAttributes<HTMLSpanElement>>;
@@ -96,17 +93,73 @@ declare const modal: (props?: ({
     position?: "center" | "topLeft" | "topCenter" | "topRight" | "centerLeft" | "centerRight" | "bottomLeft" | "bottomCenter" | "bottomRight" | null | undefined;
     disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
-declare const modalContent: (props?: ({
-    size?: "small" | "medium" | "large" | null | undefined;
+declare const contentVariants: (props?: ({
+    size?: "small" | "medium" | "large" | "full" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
+type ContentProps = ComponentProps<"div"> & VariantProps<typeof contentVariants>;
+declare const ModalContent: ({ className, size, ...props }: ContentProps) => react_jsx_runtime.JSX.Element;
+declare const ModalHeader: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+declare const ModalBody: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+declare const ModalFooter: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+type ModalComponent = typeof ModalMain & {
+    Content: typeof ModalContent;
+    Header: typeof ModalHeader;
+    Body: typeof ModalBody;
+    Footer: typeof ModalFooter;
+};
 type ModalProps = {
     open: boolean;
-    title?: string;
-    footer?: React.ReactNode;
     onClose: () => void;
-} & ComponentProps<"div"> & VariantProps<typeof modal> & VariantProps<typeof modalContent>;
-declare const Modal: react.ForwardRefExoticComponent<Omit<ModalProps, "ref"> & react.RefAttributes<HTMLDivElement>>;
+} & ComponentProps<"div"> & VariantProps<typeof modal>;
+declare const ModalMain: react.ForwardRefExoticComponent<Omit<ModalProps, "ref"> & react.RefAttributes<HTMLDivElement>>;
+declare const Modal: ModalComponent;
+
+declare const accordion: (props?: ({
+    variant?: "primary" | null | undefined;
+    size?: "small" | "medium" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type AccordionProps = ComponentProps<"details"> & VariantProps<typeof accordion>;
+declare const Summary: ({ className, children, ...props }: ComponentProps<"summary">) => react_jsx_runtime.JSX.Element;
+declare const Description$1: ({ className, ...props }: ComponentProps<"p">) => react_jsx_runtime.JSX.Element;
+type AccordionType = typeof AccordionMain & {
+    Summary: typeof Summary;
+    Description: typeof Description$1;
+};
+declare const AccordionMain: react.ForwardRefExoticComponent<Omit<AccordionProps, "ref"> & react.RefAttributes<HTMLDetailsElement>>;
+declare const Accordion: AccordionType;
+
+declare const card: (props?: ({
+    variant?: "primary" | null | undefined;
+    size?: "small" | "medium" | "large" | "full" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type CardProps = ComponentProps<"div"> & VariantProps<typeof card>;
+declare const Image: ({ className, ...props }: ComponentProps<"img">) => react_jsx_runtime.JSX.Element;
+declare const Body: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+declare const Title: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+declare const Description: ({ className, ...props }: ComponentProps<"p">) => react_jsx_runtime.JSX.Element;
+declare const Footer: ({ className, ...props }: ComponentProps<"div">) => react_jsx_runtime.JSX.Element;
+type CardComponent = React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> & {
+    Image: typeof Image;
+    Body: typeof Body;
+    Title: typeof Title;
+    Description: typeof Description;
+    Footer: typeof Footer;
+};
+declare const Card: CardComponent;
+
+declare const breadcrumb: (props?: ({
+    variant?: "primary" | null | undefined;
+    size?: "small" | "medium" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type BreadcrumbItemType = {
+    label: string;
+    href: string;
+};
+type BreadcrumbProps = ComponentProps<"nav"> & VariantProps<typeof breadcrumb> & {
+    items: BreadcrumbItemType[];
+};
+declare const BreadcrumbMain: react.ForwardRefExoticComponent<Omit<BreadcrumbProps, "ref"> & react.RefAttributes<HTMLElement>>;
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Alert, Badge, Button, Icon, Input, Label, Modal, Select, Spinner, Textarea, cn };
+export { Accordion, Alert, Badge, BreadcrumbMain as Breadcrumb, Button, Card, Icon, Input, Label, Modal, Select, Spinner, Textarea, cn };

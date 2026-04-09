@@ -21,16 +21,10 @@ const badge = cva(
         small: ["text-xs", "font-medium"],
         medium: ["text-base", "font-medium"],
       },
-      // `boolean` variants are also supported!
-      disabled: {
-        false: null,
-        true: ["opacity-50", "pointer-events-none"],
-      },
     },
     defaultVariants: {
       variant: "green",
       size: "small",
-      disabled: false,
     },
   },
 );
@@ -54,4 +48,3 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 Badge.displayName = "Badge";
 
 export default Badge;
-export { badge };
