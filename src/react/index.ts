@@ -1,6 +1,7 @@
 export { default as Button } from "./components/button";
 export { default as Icon } from "./components/icon";
 export { default as Input } from "./components/input";
+export { default as InputGroup } from "./components/input-group";
 export { default as Label } from "./components/label";
 export { default as Select } from "./components/select";
 export { default as Textarea } from "./components/textarea";

@@ -1,5 +1,5 @@
 import * as react from 'react';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import { VariantProps } from 'class-variance-authority';
 import * as react_jsx_runtime from 'react/jsx-runtime';
@@ -26,9 +26,21 @@ declare const input: (props?: ({
     size?: "small" | "medium" | null | undefined;
     disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
-type BaseInputProps = Omit<ComponentProps<"input">, "size">;
-type InputProps = BaseInputProps & VariantProps<typeof input>;
+type BaseInputProps$1 = Omit<ComponentProps<"input">, "size">;
+type InputProps = BaseInputProps$1 & VariantProps<typeof input>;
 declare const Input: react.ForwardRefExoticComponent<Omit<InputProps, "ref"> & react.RefAttributes<HTMLInputElement>>;
+
+declare const inputGroupVariants: (props?: ({
+    size?: "small" | "medium" | null | undefined;
+    disabled?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type BaseInputProps = Omit<ComponentProps<"input">, "size" | "disabled">;
+interface InputGroupProps extends BaseInputProps, VariantProps<typeof inputGroupVariants> {
+    leftIcon?: ReactNode;
+    rightIcon?: ReactNode;
+    containerClassName?: string;
+}
+declare const InputGroup: react.ForwardRefExoticComponent<Omit<InputGroupProps, "ref"> & react.RefAttributes<HTMLInputElement>>;
 
 declare const label: (props?: ({
     variant?: "primary" | "secondary" | null | undefined;
@@ -162,4 +174,4 @@ declare const BreadcrumbMain: react.ForwardRefExoticComponent<Omit<BreadcrumbPro
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Accordion, Alert, Badge, BreadcrumbMain as Breadcrumb, Button, Card, Icon, Input, Label, Modal, Select, Spinner, Textarea, cn };
+export { Accordion, Alert, Badge, BreadcrumbMain as Breadcrumb, Button, Card, Icon, Input, InputGroup, Label, Modal, Select, Spinner, Textarea, cn };
