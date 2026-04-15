@@ -21,16 +21,19 @@ type IconProps = React.ComponentProps<"i"> & {
 };
 declare const Icon: react.ForwardRefExoticComponent<Omit<IconProps, "ref"> & react.RefAttributes<HTMLElement>>;
 
-declare const input: (props?: ({
+declare const inputVariants: (props?: ({
     variant?: "primary" | "secondary" | null | undefined;
     size?: "small" | "medium" | null | undefined;
-    disabled?: boolean | null | undefined;
+    isDisabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
-type BaseInputProps$1 = Omit<ComponentProps<"input">, "size">;
-type InputProps = BaseInputProps$1 & VariantProps<typeof input>;
+type BaseInputProps$1 = Omit<ComponentProps<"input">, "size" | "disabled">;
+interface InputProps extends BaseInputProps$1, VariantProps<typeof inputVariants> {
+    disabled?: boolean;
+}
 declare const Input: react.ForwardRefExoticComponent<Omit<InputProps, "ref"> & react.RefAttributes<HTMLInputElement>>;
 
 declare const inputGroupVariants: (props?: ({
+    variant?: "primary" | "secondary" | null | undefined;
     size?: "small" | "medium" | null | undefined;
     disabled?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;

@@ -4,14 +4,19 @@ import { cn } from "../lib/utils";
 
 const inputGroupVariants = cva(
   [
-    "flex items-center w-full min-w-0 rounded-md border transition-all gap-2",
+    "flex items-center w-full min-w-0 border transition-all gap-2",
+    "duration-300 ease-in-out",
     "focus-within:ring-2 focus-within:ring-brand-primary",
     "bg-white border-gray-300 text-black dark:bg-zinc-900 dark:border-zinc-700 dark:text-white",
   ],
   {
     variants: {
+      variant: {
+        primary: ["rounded-md"],
+        secondary: ["rounded-sm"],
+      },
       size: {
-        small: ["px-2", "py-1", "text-sm"],
+        small: ["px-2", "py-2", "text-sm"],
         medium: ["px-3", "py-2", "text-base"],
       },
       disabled: {
@@ -20,6 +25,7 @@ const inputGroupVariants = cva(
       }
     },
     defaultVariants: {
+      variant: "primary",
       size: "medium",
       disabled: false,
     },
